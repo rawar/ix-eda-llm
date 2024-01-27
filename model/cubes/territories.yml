@@ -1,0 +1,28 @@
+cubes:
+  - name: territories
+    sql_table: northwind.territories
+    data_source: default
+
+    joins:
+      - name: region
+        sql: "{CUBE}.region_id = {region}.region_id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: territory_id
+        sql: territory_id
+        type: number
+        primary_key: true 
+
+      - name: territory_description
+        sql: territory_description
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

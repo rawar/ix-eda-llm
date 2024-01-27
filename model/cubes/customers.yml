@@ -1,0 +1,62 @@
+cubes:
+  - name: customers
+    sql_table: northwind.customers
+    data_source: default
+
+    joins: []
+
+    dimensions:       
+
+      - name: contact_title
+        sql: contact_title
+        type: string
+
+      - name: address
+        sql: address
+        type: string
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: region
+        sql: region
+        type: string
+
+      - name: postal_code
+        sql: postal_code
+        type: string
+
+      - name: country
+        sql: country
+        type: string
+
+      - name: phone
+        sql: phone
+        type: string
+
+      - name: fax
+        sql: fax
+        type: string
+
+      - name: customer_id
+        sql: customer_id
+        type: number
+        primary_key: true
+
+      - name: company_name
+        sql: company_name
+        type: string
+
+      - name: contact_name
+        sql: contact_name
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

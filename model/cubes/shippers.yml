@@ -1,0 +1,24 @@
+cubes:
+  - name: shippers
+    sql_table: northwind.shippers
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: company_name
+        sql: company_name
+        type: string
+
+      - name: phone
+        sql: phone
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

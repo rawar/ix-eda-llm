@@ -1,0 +1,14 @@
+faiss-cpu
+openai
+langchain
+langchain-openai
+python-dotenv
+tiktoken
+pandas
+numpy
+sqlalchemy
+ipykernel
+pathlib
+pgvector
+langchain-experimental
+PyJWT

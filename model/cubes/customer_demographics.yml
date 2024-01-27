@@ -1,0 +1,24 @@
+cubes:
+  - name: customer_demographics
+    sql_table: northwind.customer_demographics
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: customer_type_id
+        sql: customer_type_id
+        type: string
+
+      - name: customer_desc
+        sql: customer_desc
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

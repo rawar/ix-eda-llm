@@ -1,0 +1,33 @@
+cubes:
+  - name: categories
+    sql_table: northwind.categories
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: category_id
+        sql: category_id
+        type: number
+        primary_key: true
+
+      - name: picture
+        sql: picture
+        type: string
+
+      - name: category_name
+        sql: category_name
+        type: string
+
+      - name: description
+        sql: description
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

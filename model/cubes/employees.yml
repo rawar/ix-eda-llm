@@ -1,0 +1,85 @@
+cubes:
+  - name: employees
+    sql_table: northwind.employees
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: employee_id
+        sql: employee_id
+        type: number
+        primary_key: true
+
+      - name: photo
+        sql: photo
+        type: string
+
+      - name: notes
+        sql: notes
+        type: string
+
+      - name: photo_path
+        sql: photo_path
+        type: string
+
+      - name: last_name
+        sql: last_name
+        type: string
+
+      - name: first_name
+        sql: first_name
+        type: string
+
+      - name: title
+        sql: title
+        type: string
+
+      - name: title_of_courtesy
+        sql: title_of_courtesy
+        type: string
+
+      - name: address
+        sql: address
+        type: string
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: region
+        sql: region
+        type: string
+
+      - name: postal_code
+        sql: postal_code
+        type: string
+
+      - name: country
+        sql: country
+        type: string
+
+      - name: home_phone
+        sql: home_phone
+        type: string
+
+      - name: extension
+        sql: extension
+        type: string
+
+      - name: birth_date
+        sql: birth_date
+        type: time
+
+      - name: hire_date
+        sql: hire_date
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

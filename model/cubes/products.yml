@@ -1,0 +1,40 @@
+cubes:
+  - name: products
+    sql_table: northwind.products
+    data_source: default
+
+    joins:
+      - name: suppliers
+        sql: "{CUBE}.supplier_id = {suppliers}.supplier_id"
+        relationship: many_to_one
+
+      - name: categories
+        sql: "{CUBE}.category_id = {categories}.category_id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: product_id
+        sql: product_id
+        type: number
+        primary_key: true
+        
+      - name: unit_price
+        sql: unit_price
+        type: string
+
+      - name: product_name
+        sql: product_name
+        type: string
+
+      - name: quantity_per_unit
+        sql: quantity_per_unit
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

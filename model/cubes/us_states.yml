@@ -1,0 +1,28 @@
+cubes:
+  - name: us_states
+    sql_table: northwind.us_states
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: state_abbr
+        sql: state_abbr
+        type: string
+
+      - name: state_region
+        sql: state_region
+        type: string
+
+      - name: state_name
+        sql: state_name
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

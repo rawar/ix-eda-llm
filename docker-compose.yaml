@@ -1,0 +1,25 @@
+version : '3'
+services:
+    pgsql:
+        image: ankane/pgvector
+        container_name: pgsql
+        restart: always
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        ports:
+            - 5432:5432
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    cube:
+        image: cubejs/cube:latest
+        ports:
+            - 4000:4000
+            - 15432:15432
+        environment:
+            - CUBEJS_DEV_MODE=true
+        volumes:
+            - .:/cube/conf

@@ -1,0 +1,72 @@
+cubes:
+  - name: orders
+    sql_table: northwind.orders
+    data_source: default
+
+    joins:
+      - name: employees
+        sql: "{CUBE}.employee_id = {employees}.employee_id"
+        relationship: many_to_one
+
+      - name: customers
+        sql: "{CUBE}.customer_id = {customers}.customer_id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: freight
+        sql: freight
+        type: string
+
+      - name: ship_city
+        sql: ship_city
+        type: string
+
+      - name: ship_region
+        sql: ship_region
+        type: string
+
+      - name: ship_postal_code
+        sql: ship_postal_code
+        type: string
+
+      - name: ship_country
+        sql: ship_country
+        type: string
+
+      - name: order_id
+        sql: order_id
+        type: number
+        primary_key: true
+
+      - name: customer_id
+        sql: customer_id
+        type: string  
+
+      - name: ship_name
+        sql: ship_name
+        type: string
+
+      - name: ship_address
+        sql: ship_address
+        type: string
+
+      - name: order_date
+        sql: order_date
+        type: time
+
+      - name: required_date
+        sql: required_date
+        type: time
+
+      - name: shipped_date
+        sql: shipped_date
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

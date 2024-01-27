@@ -1,0 +1,29 @@
+cubes:
+  - name: employee_territories
+    sql_table: northwind.employee_territories
+    data_source: default
+
+    joins:
+      - name: employees
+        sql: "{CUBE}.employee_id = {employees}.employee_id"
+        relationship: many_to_one
+
+      - name: territories
+        sql: "{CUBE}.territory_id = {territories}.territory_id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: territory_id
+        sql: territory_id
+        type: number
+        primary_key: true
+
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

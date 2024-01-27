@@ -1,0 +1,32 @@
+cubes:
+  - name: customer_customer_demo
+    sql_table: northwind.customer_customer_demo
+    data_source: default
+
+    joins:
+      - name: customers
+        sql: "{CUBE}.customer_id = {customers}.customer_id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: customer_customer_demo
+        sql: customer_customer_demo
+        type: number
+        primary_key: true
+
+      - name: customer_id
+        sql: customer_id
+        type: string
+
+      - name: customer_type_id
+        sql: customer_type_id
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+
